@@ -1,0 +1,7 @@
+[package]
+name = "mathshortcuts"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aegon Huke"]
+license = "Unlicense"
+description = "A package providing shortcuts for math symbols."
