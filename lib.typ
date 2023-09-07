@@ -103,12 +103,25 @@
 #let var = $op("var")$
 #let cov = $op("cov")$
 
-#let diagnostic(mark, label: [], number: none) = {
-  if number == none [
+/// Write diagnostic statistics
+/// 
+/// - mark (any): The statistic's symbol
+/// - label (content): An additional label attached to the symbol
+/// - value (none, numbering): An optional value. If none, hide the equal sign; otherwise show the equal sign and the value.
+#let diagnostic(mark, label: [], value: none) = {
+  if value == none [
     $attach(#mark, br: text(label))$
   ] else [
-    $attach(#mark, br: text(label))=#number$
+    $attach(#mark, br: text(label))=#value$
   ]
 }
 
-#let rsquare(value: none) = diagnostic($R^2$, number: value)
+/// R squared
+///
+/// - value (none, numbering): An optional value.
+///
+/// *Example:*
+/// 
+/// - #msc.rsquare()
+/// - #msc.rsquare(value: 0.8)
+#let rsquare(value: none) = diagnostic($R^2$, value: value)
